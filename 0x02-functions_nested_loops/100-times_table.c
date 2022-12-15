@@ -1,51 +1,46 @@
 #include "main.h"
-#include <unistd.h>
 /**
- * print_times_table - print
- * Description: prints the n times table
- * Return: 0
- * @n:input
+ * print_times_table - Prints the times table of the input,
+ * starting with 0
+ * @n: The value of the times table to be printed.
  */
 void print_times_table(int n)
 {
-int a;
-int b;
-if (n >= 0 && n <= 15)
-{
-for (a = 0; a <= n; a++)
-{
-for (b = 0; b <= n; b++)
-{
-if ((a * b) < 10)
-{
-if (b != 0)
-{
-_putchar(' ');
-_putchar(' ');
-_putchar(' ');
+	int num, mult, prod;
+	if (n >= 0 && n <= 15)
+	{
+		for (num = 0; num <= n; num++)
+		{
+			_putchar('0');
+			for (mult = 1; mult <= n; mult++)
+			{
+				_putchar(',');
+				_putchar(' ');
+				prod = num * mult;
+				if (prod <= 99)
+					_putchar(' ');
+				if (prod <= 9)
+					_putchar(' ');
+				if (prod >= 100)
+				{
+					_putchar((prod / 100) + '0');
+					_putchar(((prod / 10)) % 10 + '0');
+				}
+				else if (prod <= 99 && prod >= 10)
+				{
+					_putchar((prod / 10) + '0');
+				}
+				_putchar((prod % 10) + '0');
+			}
+			_putchar('\n');
+		}
+	}
 }
-_putchar((b * a) + '0');
-}
-else if ((a * b) < 100)
-{
-_putchar(' ');
-_putchar(' ');
-_putchar((((b * a) / 10) % 10) + '0');
-_putchar(((b * a) % 10) + '0');
-}
-else if ((a * b) < 1000)
-{
-_putchar(' ');
-_putchar((((b * a) / 100) % 10) + '0');
-_putchar((((b * a) / 10) % 10) + '0');
-_putchar(((b * a) % 10) + '0');
-}
-if (b != (n))
-{
-_putchar(',');
-}
-}
-_putchar('\n');
-}
-}
-}
+
+
+
+
+
+
+
+
